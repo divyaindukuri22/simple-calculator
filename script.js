@@ -1,0 +1,38 @@
+let display = document.getElementById('display');
+let expression = '';
+
+function appendNumber(number) {
+    expression += number;
+    display.value = expression;
+}
+
+function appendOperator(operator) {
+    expression += operator;
+    display.value = expression;
+}
+
+function calculate() {
+    try {
+        let result = eval(expression);
+        display.value = result;
+        expression = '';
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
+
+function calculateSquare() {
+    try {
+        let result = eval(expression);
+        result = result ** 2;
+        display.value = result;
+        expression = '';
+    } catch (error) {
+        display.value = 'Error';
+    }
+}
+
+function clearDisplay() {
+    display.value = '';
+    expression = '';
+}
